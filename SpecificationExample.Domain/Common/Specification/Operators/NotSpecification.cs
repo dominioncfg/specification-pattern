@@ -6,13 +6,16 @@ public class NotSpecification<T> : Specification<T> where T : Entity
 {
     public NotSpecification(Specification<T> specification)
     {
+        ArgumentNullException.ThrowIfNull(specification);
+
         var expr = specification.ToExpression();
         if (expr is null)
-            throw new ArgumentException("Specification cannot be null");
+            ArgumentNullException.ThrowIfNull(expr);
 
         var notExpr = Expression.Lambda<Func<T, bool>>(
             Expression.Not(expr.Body),
             expr.Parameters);
+       
         Rule(notExpr);
         OrderBy(specification.OrdersBy.ToArray());
         Paginate(specification.PagingExpressions);

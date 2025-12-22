@@ -6,32 +6,59 @@ public class AndSpecification<T> : Specification<T> where T : Entity
 {
     public AndSpecification(Specification<T> left, Specification<T> right)
     {
-        var leftExpresssion = left.ToExpression();
-        var rightExpression = right.ToExpression();
-
-
-        if (leftExpresssion is null && rightExpression is null)
+        if (left is null && right is null)
             throw new ArgumentException("Both specifications cannot be null");
 
+        Rule(CombineRule(left, right));
+        OrderBy(CombineOrderBy(left, right));
+        Paginate(CombinePaging(left, right));
+        Include(CombineIncludes(left, right));
+        QueryTag(CombineTags(left, right));
+        AsNoTrackingQuery(CombineAsNoTracking(left, right));
+        AsSplitQuery(CombineSplitQuery(left, right));
+    }
+
+    private static Expression<Func<T, bool>>? CombineRule(Specification<T>? left, Specification<T>? right)
+    {
+        var leftExpresssion = left?.ToExpression();
+        var rightExpression = right?.ToExpression();
+
         if (leftExpresssion is null)
-        {
-            Rule(rightExpression!);
-            return;
-        }
+            return rightExpression;
 
         if (rightExpression is null)
-        {
-            Rule(leftExpresssion!);
-            return;
-        }
+            return leftExpresssion;
 
-        Rule(ExpressionCombiner.CombineExpressions(leftExpresssion, rightExpression, Expression.AndAlso));
-        OrderBy([.. left.OrdersBy, .. right.OrdersBy]);
-        Paginate(left.PagingExpressions ?? right.PagingExpressions);
-        Include([.. left.Includes, .. right.Includes]);
-        QueryTag([.. left.QueryTags, .. right.QueryTags]);
-        AsNoTrackingQuery(left.AsNoTracking || right.AsNoTracking);
-        AsSplitQuery(left.SplitQuery || right.SplitQuery);
+        return ExpressionCombiner.CombineExpressions(leftExpresssion, rightExpression, Expression.AndAlso);
+    }
 
+    private static SpecificationOrderByExpression<T>[] CombineOrderBy(Specification<T>? left, Specification<T>? right)
+    {
+        return [.. left?.OrdersBy ?? [], .. right?.OrdersBy ?? []];
+    }
+
+    private static SpecificationPagingExpression<T>? CombinePaging(Specification<T>? left, Specification<T>? right)
+    {
+        return left?.PagingExpressions ?? right?.PagingExpressions;
+    }
+
+    private static Expression<Func<T, object>>[] CombineIncludes(Specification<T>? left, Specification<T>? right)
+    {
+        return [.. left?.Includes ?? [], .. right?.Includes ?? []];
+    }
+
+    private static string[] CombineTags(Specification<T>? left, Specification<T>? right)
+    {
+        return [.. left?.QueryTags ?? [], .. right?.QueryTags ?? []];
+    }
+
+    private static bool? CombineAsNoTracking(Specification<T>? left, Specification<T>? right)
+    {
+        return left?.AsNoTracking ?? right?.AsNoTracking;
+    }
+
+    private static bool? CombineSplitQuery(Specification<T>? left, Specification<T>? right)
+    {
+        return left?.SplitQuery ?? right?.SplitQuery;
     }
 }

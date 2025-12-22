@@ -9,11 +9,11 @@ public class Specification<T> where T : Entity
     public SpecificationPagingExpression<T>? PagingExpressions { get; protected set; }
     public List<Expression<Func<T, object>>> Includes { get; protected set; } = [];
     public List<string> QueryTags { get; protected set; } = [];
-    public bool SplitQuery { get; protected set; } = false;
-    public bool AsNoTracking { get; protected set; } = false;
+    public bool? SplitQuery { get; protected set; }
+    public bool? AsNoTracking { get; protected set; }
 
 
-    public Specification<T> Rule(Expression<Func<T, bool>> filter)
+    public Specification<T> Rule(Expression<Func<T, bool>>? filter)
     {
         Filter = filter;
         return this;
@@ -72,13 +72,13 @@ public class Specification<T> where T : Entity
         return this;
     }
 
-    public Specification<T> AsNoTrackingQuery(bool asNoTracking = true)
+    public Specification<T> AsNoTrackingQuery(bool? asNoTracking = true)
     {
         AsNoTracking = asNoTracking;
         return this;
     }
 
-    public Specification<T> AsSplitQuery(bool asSplitQuery = true)
+    public Specification<T> AsSplitQuery(bool? asSplitQuery = true)
     {
         SplitQuery = asSplitQuery;
         return this;
