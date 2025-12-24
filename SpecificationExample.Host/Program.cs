@@ -4,10 +4,8 @@ using SpecificationExample.Infra;
 Seed();
 
 
-var filter = new BlogAccountAggregateSpecification();
-
-
-//Test EFCore 
+//Test EFCore Query Specification
+var filter = new BlogAccountAggregateQuerySpecification();
 using var db = new AppDbContext();
 IBlogAccountRepository blogRepository = new BlogAccountRepository(db);
 
@@ -15,7 +13,7 @@ var blogAccounts = await blogRepository.Filter(filter, default);
 
 if (!blogAccounts.Any())
 {
-    Console.WriteLine("[EF Core] - Blog not found");
+    Console.WriteLine("[EF Core] - Blog Account not found");
 }
 else
 {
@@ -25,13 +23,14 @@ else
     }
 }
 
-//Test InMemory
+//Test InMemory Domain Specification
 var blogsInMemory = SeedInMemory();
-var filteredBlogAccounts = blogsInMemory.Filter(filter);
+var domainQuery = new BlogAccountByNameSpecification("First Blog Account");
+var filteredBlogAccounts = blogsInMemory.Filter(domainQuery);
 
 if (!filteredBlogAccounts.Any())
 {
-    Console.WriteLine("[In Memory] - Blog not found");
+    Console.WriteLine("[In Memory] - Blog Account not found");
 }
 else
 {
@@ -40,7 +39,7 @@ else
         Console.WriteLine($"[In Memory] - Blog Account - {blog.Name}");
     }
 }
-
+//==============================================
 
 
 static void Seed()

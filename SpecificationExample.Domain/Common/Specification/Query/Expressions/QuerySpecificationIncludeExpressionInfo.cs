@@ -2,35 +2,35 @@
 
 namespace SpecificationExample.Domain.Common;
 
-public class IncludeExpressionInfo
+public class QuerySpecificationIncludeExpressionInfo
 {
     public LambdaExpression LambdaExpression { get; }
 
     public Type? PreviousPropertyType { get; }
 
-    public IncludeTypeEnum Type { get; }
+    public QuerySpecificationIncludeTypeEnum Type { get; }
 
-    public IncludeExpressionInfo(LambdaExpression expression)
+    public QuerySpecificationIncludeExpressionInfo(LambdaExpression expression)
     {
         _ = expression ?? throw new ArgumentNullException(nameof(expression));
 
         LambdaExpression = expression;
         PreviousPropertyType = null;
-        Type = IncludeTypeEnum.Include;
+        Type = QuerySpecificationIncludeTypeEnum.Include;
     }
 
-    public IncludeExpressionInfo(LambdaExpression expression, Type previousPropertyType)
+    public QuerySpecificationIncludeExpressionInfo(LambdaExpression expression, Type previousPropertyType)
     {
         _ = expression ?? throw new ArgumentNullException(nameof(expression));
         _ = previousPropertyType ?? throw new ArgumentNullException(nameof(previousPropertyType));
 
         LambdaExpression = expression;
         PreviousPropertyType = previousPropertyType;
-        Type = IncludeTypeEnum.ThenInclude;
+        Type = QuerySpecificationIncludeTypeEnum.ThenInclude;
     }
 }
 
-public enum IncludeTypeEnum
+public enum QuerySpecificationIncludeTypeEnum
 {
     Include = 1,
     ThenInclude = 2

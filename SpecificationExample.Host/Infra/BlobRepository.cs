@@ -27,13 +27,13 @@ public class BlogAccountRepository : IBlogAccountRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<BlogAccount>> Filter(Specification<BlogAccount> filter, CancellationToken cancellation)
+    public async Task<IEnumerable<BlogAccount>> Filter(QuerySpecification<BlogAccount> filter, CancellationToken cancellation)
     {
-        return (await _context.Accounts.FilterWithEfCore(filter).ToListAsync(cancellation)).AsEnumerable();
+        return (await _context.Accounts.Filter(filter).ToListAsync(cancellation)).AsEnumerable();
     }
 
-    public async Task<BlogAccount> Get(Specification<BlogAccount> filter, CancellationToken cancellationToken)
+    public async Task<BlogAccount> Get(QuerySpecification<BlogAccount> filter, CancellationToken cancellationToken)
     {
-        return await _context.Accounts.FilterWithEfCore(filter).FirstAsync(cancellationToken);
+        return await _context.Accounts.Filter(filter).FirstAsync(cancellationToken);
     }
 }

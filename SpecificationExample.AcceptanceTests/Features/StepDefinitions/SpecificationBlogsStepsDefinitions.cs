@@ -53,5 +53,14 @@ namespace SpecificationExample.AcceptanceTests.Features.StepDefinitions
             public Guid Id { get; set; }
             public string Name { get; set; } = string.Empty;
         }
+
+        private class FirstTenBlogByNameSpecification : DomainSpecification<Blog>
+        {
+            public FirstTenBlogByNameSpecification(string name)
+            {
+                Rule(query => query.Name == name);
+                Paginate(0, 10);
+            }
+        }   
     }
 }

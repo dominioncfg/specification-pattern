@@ -77,7 +77,7 @@ public static class SpecificationApplyIncludeEvaluatorExtensions
         propertyType = type;
         return false;
     }
-    public static IQueryable<T> ApplyIncludes<T>(this IQueryable<T> query, Specification<T>? specification) where T : Entity
+    public static IQueryable<T> ApplyIncludes<T>(this IQueryable<T> query, QuerySpecification<T>? specification) where T : Entity
     {
         if (specification is null)
             return query;
@@ -91,12 +91,12 @@ public static class SpecificationApplyIncludeEvaluatorExtensions
         {
             var includeInfo = specification.Includes[i];
 
-            if (includeInfo.Type == IncludeTypeEnum.Include)
+            if (includeInfo.Type == QuerySpecificationIncludeTypeEnum.Include)
             {
                 var inculde = CreateIncludeDelegate(typeof(T), includeInfo.LambdaExpression.ReturnType, null);
                 currentQuery = (IQueryable<T>)inculde(currentQuery, includeInfo.LambdaExpression);
             }
-            else if (includeInfo.Type == IncludeTypeEnum.ThenInclude)
+            else if (includeInfo.Type == QuerySpecificationIncludeTypeEnum.ThenInclude)
             {
                 var inculde = CreateThenIncludeDelegate(typeof(T), includeInfo.LambdaExpression.ReturnType, includeInfo.PreviousPropertyType!);
                 currentQuery = (IQueryable<T>)inculde(currentQuery, includeInfo.LambdaExpression);
