@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using SpecificationExample.Domain.Common;
+using Xunit;
 
 namespace SpecificationExample.UnitTests.Common.Specifications;
 
@@ -10,11 +11,11 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 10 },
-            new() { Id = 2, Name = "Second", Value = 20 },
-            new() { Id = 3, Name = "Third", Value = 30 },
-            new() { Id = 4, Name = "Fourth", Value = 40 },
-            new() { Id = 5, Name = "Fifth", Value = 50 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Third", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "Fourth", Value = 40 },
+            new() { Id = Guid.NewGuid(), Name = "Fifth", Value = 50 },
         };
 
         var specification = new TestEntityPaginateSkipOnlySpecification(2);
@@ -22,9 +23,9 @@ public class WhenPagingBySingleSpecification
         var pagedEntities = entities.Filter(specification).ToList();
 
         pagedEntities.Should().HaveCount(3);
-        pagedEntities[0].Id.Should().Be(3);
-        pagedEntities[1].Id.Should().Be(4);
-        pagedEntities[2].Id.Should().Be(5);
+        pagedEntities[0].Name.Should().Be("Third");
+        pagedEntities[1].Name.Should().Be("Fourth");
+        pagedEntities[2].Name.Should().Be("Fifth");
     }
 
     [Fact]
@@ -32,11 +33,11 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 10 },
-            new() { Id = 2, Name = "Second", Value = 20 },
-            new() { Id = 3, Name = "Third", Value = 30 },
-            new() { Id = 4, Name = "Fourth", Value = 40 },
-            new() { Id = 5, Name = "Fifth", Value = 50 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Third", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "Fourth", Value = 40 },
+            new() { Id = Guid.NewGuid(), Name = "Fifth", Value = 50 },
         };
 
         var specification = new TestEntityPaginateTakeOnlySpecification(3);
@@ -44,9 +45,9 @@ public class WhenPagingBySingleSpecification
         var pagedEntities = entities.Filter(specification).ToList();
 
         pagedEntities.Should().HaveCount(3);
-        pagedEntities[0].Id.Should().Be(1);
-        pagedEntities[1].Id.Should().Be(2);
-        pagedEntities[2].Id.Should().Be(3);
+        pagedEntities[0].Name.Should().Be("First");
+        pagedEntities[1].Name.Should().Be("Second");
+        pagedEntities[2].Name.Should().Be("Third");
     }
 
     [Fact]
@@ -54,11 +55,11 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 10 },
-            new() { Id = 2, Name = "Second", Value = 20 },
-            new() { Id = 3, Name = "Third", Value = 30 },
-            new() { Id = 4, Name = "Fourth", Value = 40 },
-            new() { Id = 5, Name = "Fifth", Value = 50 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Third", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "Fourth", Value = 40 },
+            new() { Id = Guid.NewGuid(), Name = "Fifth", Value = 50 },
         };
 
         var specification = new TestEntityPaginateSpecification(1, 2);
@@ -66,8 +67,8 @@ public class WhenPagingBySingleSpecification
         var pagedEntities = entities.Filter(specification).ToList();
 
         pagedEntities.Should().HaveCount(2);
-        pagedEntities[0].Id.Should().Be(2);
-        pagedEntities[1].Id.Should().Be(3);
+        pagedEntities[0].Name.Should().Be("Second");
+        pagedEntities[1].Name.Should().Be("Third");
     }
 
     [Fact]
@@ -75,9 +76,9 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 10 },
-            new() { Id = 2, Name = "Second", Value = 20 },
-            new() { Id = 3, Name = "Third", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Third", Value = 30 },
         };
 
         var specification = new TestEntityPaginateSkipOnlySpecification(0);
@@ -92,8 +93,8 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 10 },
-            new() { Id = 2, Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
         };
 
         var specification = new TestEntityPaginateSkipOnlySpecification(10);
@@ -108,8 +109,8 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 10 },
-            new() { Id = 2, Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
         };
 
         var specification = new TestEntityPaginateTakeOnlySpecification(100);
@@ -124,11 +125,11 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 20 },
-            new() { Id = 2, Name = "Second", Value = 20 },
-            new() { Id = 3, Name = "Third", Value = 10 },
-            new() { Id = 4, Name = "Fourth", Value = 20 },
-            new() { Id = 5, Name = "Fifth", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Third", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Fourth", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Fifth", Value = 20 },
         };
 
         var specification = new TestEntityByValueWithPagingSpecification(20, 1, 2);
@@ -136,8 +137,8 @@ public class WhenPagingBySingleSpecification
         var pagedEntities = entities.Filter(specification).ToList();
 
         pagedEntities.Should().HaveCount(2);
-        pagedEntities[0].Id.Should().Be(2);
-        pagedEntities[1].Id.Should().Be(4);
+        pagedEntities[0].Name.Should().Be("Second");
+        pagedEntities[1].Name.Should().Be("Fourth");
     }
 
     [Fact]
@@ -145,10 +146,10 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Charlie", Value = 30 },
-            new() { Id = 2, Name = "Alpha", Value = 10 },
-            new() { Id = 3, Name = "Delta", Value = 40 },
-            new() { Id = 4, Name = "Bravo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 40 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
         };
 
         var specification = new TestEntityOrderByNameWithPagingSpecification(1, 2);
@@ -165,11 +166,11 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Charlie", Value = 20 },
-            new() { Id = 2, Name = "Alpha", Value = 10 },
-            new() { Id = 3, Name = "Delta", Value = 20 },
-            new() { Id = 4, Name = "Bravo", Value = 20 },
-            new() { Id = 5, Name = "Echo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Echo", Value = 20 },
         };
 
         var specification = new TestEntityByValueWithOrderByNameAndPagingSpecification(20, 1, 2);
@@ -186,9 +187,9 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 10 },
-            new() { Id = 2, Name = "Second", Value = 20 },
-            new() { Id = 3, Name = "Third", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Third", Value = 30 },
         };
 
         var specification = new TestEntityNoPagingSpecification();
@@ -203,8 +204,8 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 10 },
-            new() { Id = 2, Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
         };
 
         var specification = new TestEntityPaginateTakeOnlySpecification(0);
@@ -231,12 +232,12 @@ public class WhenPagingBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "First", Value = 10 },
-            new() { Id = 2, Name = "Second", Value = 20 },
-            new() { Id = 3, Name = "Third", Value = 30 },
-            new() { Id = 4, Name = "Fourth", Value = 40 },
-            new() { Id = 5, Name = "Fifth", Value = 50 },
-            new() { Id = 6, Name = "Sixth", Value = 60 },
+            new() { Id = Guid.NewGuid(), Name = "First", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Second", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Third", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "Fourth", Value = 40 },
+            new() { Id = Guid.NewGuid(), Name = "Fifth", Value = 50 },
+            new() { Id = Guid.NewGuid(), Name = "Sixth", Value = 60 },
         };
 
         var page1Spec = new TestEntityPaginateSpecification(0, 2);
@@ -248,16 +249,16 @@ public class WhenPagingBySingleSpecification
         var page3 = entities.Filter(page3Spec).ToList();
 
         page1.Should().HaveCount(2);
-        page1[0].Id.Should().Be(1);
-        page1[1].Id.Should().Be(2);
+        page1[0].Name.Should().Be("First");
+        page1[1].Name.Should().Be("Second");
 
         page2.Should().HaveCount(2);
-        page2[0].Id.Should().Be(3);
-        page2[1].Id.Should().Be(4);
+        page2[0].Name.Should().Be("Third");
+        page2[1].Name.Should().Be("Fourth");
 
         page3.Should().HaveCount(2);
-        page3[0].Id.Should().Be(5);
-        page3[1].Id.Should().Be(6);
+        page3[0].Name.Should().Be("Fifth");
+        page3[1].Name.Should().Be("Sixth");
     }
 
     private class TestEntity : Entity

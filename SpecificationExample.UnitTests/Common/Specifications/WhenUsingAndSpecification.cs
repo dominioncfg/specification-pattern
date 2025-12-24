@@ -10,10 +10,10 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Alpha", Value = 20 },
-            new() { Id = 2, Name = "Bravo", Value = 10 },
-            new() { Id = 3, Name = "Charlie", Value = 20 },
-            new() { Id = 4, Name = "Delta", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 30 },
         };
 
         var nameSpec = new TestEntityByNameSpecification("Alpha");
@@ -31,9 +31,9 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Alpha", Value = 10 },
-            new() { Id = 2, Name = "Bravo", Value = 20 },
-            new() { Id = 3, Name = "Charlie", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 30 },
         };
 
         var nameSpec = new TestEntityByNameSpecification("Alpha");
@@ -50,10 +50,10 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Alpha", Value = 20 },
-            new() { Id = 2, Name = "Bravo", Value = 20 },
-            new() { Id = 3, Name = "Charlie", Value = 10 },
-            new() { Id = 4, Name = "Delta", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 20 },
         };
 
         var valueSpec = new TestEntityByValueSpecification(20);
@@ -73,9 +73,9 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Alpha", Value = 20 },
-            new() { Id = 2, Name = "Bravo", Value = 10 },
-            new() { Id = 3, Name = "Charlie", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 20 },
         };
 
         var nameSpec = new TestEntityByNameSpecification("Alpha");
@@ -93,9 +93,9 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Alpha", Value = 20 },
-            new() { Id = 2, Name = "Bravo", Value = 10 },
-            new() { Id = 3, Name = "Charlie", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 20 },
         };
 
         var emptySpec = new TestEntityEmptySpecification();
@@ -112,7 +112,7 @@ public class WhenUsingAndSpecification
     [Fact]
     public void Throws_When_Both_Specifications_Are_Null()
     {
-        var act = () => new AndSpecification<TestEntity>(null!,null!);
+        var act = () => new AndSpecification<TestEntity>(null!, null!);
 
         act.Should().Throw<ArgumentException>()
             .WithMessage("Both specifications cannot be null");
@@ -123,10 +123,10 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Charlie", Value = 20 },
-            new() { Id = 2, Name = "Alpha", Value = 20 },
-            new() { Id = 3, Name = "Bravo", Value = 20 },
-            new() { Id = 4, Name = "Delta", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 10 },
         };
 
         var valueSpec = new TestEntityByValueWithOrderByNameSpecification(20);
@@ -146,10 +146,10 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Alpha", Value = 20 },
-            new() { Id = 2, Name = "Bravo", Value = 20 },
-            new() { Id = 3, Name = "Charlie", Value = 20 },
-            new() { Id = 4, Name = "Delta", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 10 },
         };
 
         var valueSpecWithPaging = new TestEntityByValueWithPagingSpecification(20, 1, 1);
@@ -167,10 +167,10 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Alpha", Value = 20 },
-            new() { Id = 2, Name = "Bravo", Value = 20 },
-            new() { Id = 3, Name = "Charlie", Value = 20 },
-            new() { Id = 4, Name = "Delta", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 10 },
         };
 
         var valueSpec = new TestEntityByValueSpecification(20);
@@ -189,10 +189,10 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Alpha", Value = 25 },
-            new() { Id = 2, Name = "Bravo", Value = 20 },
-            new() { Id = 3, Name = "Charlie", Value = 15 },
-            new() { Id = 4, Name = "Delta", Value = 25 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 25 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 15 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 25 },
         };
 
         var valueSpec = new TestEntityByValueSpecification(25);
@@ -211,11 +211,11 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Charlie", Value = 25 },
-            new() { Id = 2, Name = "Alpha", Value = 25 },
-            new() { Id = 3, Name = "Bravo", Value = 25 },
-            new() { Id = 4, Name = "Delta", Value = 15 },
-            new() { Id = 5, Name = "Echo", Value = 25 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 25 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 25 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 25 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 15 },
+            new() { Id = Guid.NewGuid(), Name = "Echo", Value = 25 },
         };
 
         var valueSpecWithOrderBy = new TestEntityByValueWithOrderByNameSpecification(25);
@@ -234,11 +234,11 @@ public class WhenUsingAndSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Delta", Value = 10 },
-            new() { Id = 2, Name = "Charlie", Value = 20 },
-            new() { Id = 3, Name = "Bravo", Value = 20 },
-            new() { Id = 4, Name = "Alpha", Value = 20 },
-            new() { Id = 5, Name = "Echo", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "Delta", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Echo", Value = 30 },
         };
 
         var valueSpec = new TestEntityByValueSpecification(20);

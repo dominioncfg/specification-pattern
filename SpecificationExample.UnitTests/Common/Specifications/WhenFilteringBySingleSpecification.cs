@@ -10,9 +10,9 @@ public class WhenFilteringBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Entity1", Value = 10 },
-            new() { Id = 2, Name = "Entity2", Value = 20 },
-            new() { Id = 3, Name = "Entity3", Value = 30 },
+            new() { Id = Guid.NewGuid(), Name = "Entity1", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Entity2", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Entity3", Value = 30 },
         };
 
         var specification = new TestEntityByNameSpecification("Entity2");
@@ -26,11 +26,11 @@ public class WhenFilteringBySingleSpecification
     [Fact]
     public void No_Item_Is_Returned()
     {
-        TestEntity testEntity = new() { Id = 3, Name = "Entity3", Value = 30 };
+        TestEntity testEntity = new() { Id = Guid.NewGuid(), Name = "Entity3", Value = 30 };
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Entity1", Value = 10 },
-            new() { Id = 2, Name = "Entity2", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Entity1", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Entity2", Value = 20 },
             testEntity,
         };
 
@@ -38,7 +38,7 @@ public class WhenFilteringBySingleSpecification
 
         var filteredEntities = entities.Filter(specification).ToList();
 
-        filteredEntities.Should().BeEmpty();   
+        filteredEntities.Should().BeEmpty();
     }
 
     [Fact]
@@ -46,9 +46,9 @@ public class WhenFilteringBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Entity1", Value = 10 },
-            new() { Id = 2, Name = "Entity2", Value = 20 },
-            new() { Id = 3, Name = "Entity3", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Entity1", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Entity2", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Entity3", Value = 20 },
         };
         var specification = new TestEntityByValueSpecification(20);
         var filteredEntities = entities.Filter(specification).ToList();
@@ -62,9 +62,9 @@ public class WhenFilteringBySingleSpecification
     {
         var entities = new List<TestEntity>
         {
-            new() { Id = 1, Name = "Entity1", Value = 10 },
-            new() { Id = 2, Name = "Entity2", Value = 20 },
-            new() { Id = 3, Name = "Entity3", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Entity1", Value = 10 },
+            new() { Id = Guid.NewGuid(), Name = "Entity2", Value = 20 },
+            new() { Id = Guid.NewGuid(), Name = "Entity3", Value = 20 },
         };
         var specification = new ReturnsAllTestEntitiesSpecification();
         var filteredEntities = entities.Filter(specification).ToList();

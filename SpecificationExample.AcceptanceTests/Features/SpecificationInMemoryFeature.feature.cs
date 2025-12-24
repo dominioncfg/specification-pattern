@@ -114,13 +114,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "Id",
                             "Name"});
                 table1.AddRow(new string[] {
-                            "1",
+                            "@Blog1Id",
                             "Test Blog 1"});
                 table1.AddRow(new string[] {
-                            "2",
+                            "@Blog2Id",
                             "Sample Blog"});
                 table1.AddRow(new string[] {
-                            "3",
+                            "@Blog3Id",
                             "Another Blog"});
 #line 5
  await testRunner.GivenAsync("the existing blogs in memory:", ((string)(null)), table1, "Given ");
@@ -132,7 +132,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Id",
                             "Name"});
                 table2.AddRow(new string[] {
-                            "1",
+                            "@Blog1Id",
                             "Test Blog 1"});
 #line 11
  await testRunner.ThenAsync("the following blogs are returned:", ((string)(null)), table2, "Then ");

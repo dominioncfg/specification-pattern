@@ -10,9 +10,9 @@ public class WhenOrderingBySingleSpecification
     {
         var entities = new List<TestEntity>
             {
-                new() { Id = 1, Name = "Charlie", Value = 10 },
-                new() { Id = 2, Name = "Alpha", Value = 20 },
-                new() { Id = 3, Name = "Bravo", Value = 30 },
+                new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 10 },
+                new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 30 },
             };
 
         var specification = new TestEntityOrderByNameAscendingSpecification();
@@ -30,9 +30,9 @@ public class WhenOrderingBySingleSpecification
     {
         var entities = new List<TestEntity>
             {
-                new() { Id = 1, Name = "Charlie", Value = 10 },
-                new() { Id = 2, Name = "Alpha", Value = 20 },
-                new() { Id = 3, Name = "Bravo", Value = 30 },
+                new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 10 },
+                new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 30 },
             };
 
         var specification = new TestEntityOrderByNameDescendingSpecification();
@@ -50,10 +50,10 @@ public class WhenOrderingBySingleSpecification
     {
         var entities = new List<TestEntity>
             {
-                new() { Id = 1, Name = "Bravo", Value = 20 },
-                new() { Id = 2, Name = "Alpha", Value = 20 },
-                new() { Id = 3, Name = "Alpha", Value = 10 },
-                new() { Id = 4, Name = "Bravo", Value = 10 },
+                new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 10 },
+                new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 10 },
             };
 
         var specification = new TestEntityOrderByValueThenByNameSpecification();
@@ -72,10 +72,10 @@ public class WhenOrderingBySingleSpecification
     {
         var entities = new List<TestEntity>
             {
-                new() { Id = 1, Name = "Bravo", Value = 20 },
-                new() { Id = 2, Name = "Alpha", Value = 20 },
-                new() { Id = 3, Name = "Alpha", Value = 10 },
-                new() { Id = 4, Name = "Bravo", Value = 10 },
+                new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 10 },
+                new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 10 },
             };
 
         var specification = new TestEntityOrderByValueDescendingThenByNameAscendingSpecification();
@@ -94,10 +94,10 @@ public class WhenOrderingBySingleSpecification
     {
         var entities = new List<TestEntity>
             {
-                new() { Id = 1, Name = "Charlie", Value = 20 },
-                new() { Id = 2, Name = "Alpha", Value = 20 },
-                new() { Id = 3, Name = "Bravo", Value = 10 },
-                new() { Id = 4, Name = "Delta", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 10 },
+                new() { Id = Guid.NewGuid(), Name = "Delta", Value = 20 },
             };
 
         var specification = new TestEntityByValueWithOrderByNameSpecification(20);
@@ -115,9 +115,9 @@ public class WhenOrderingBySingleSpecification
     {
         var entities = new List<TestEntity>
             {
-                new() { Id = 1, Name = "Charlie", Value = 30 },
-                new() { Id = 2, Name = "Alpha", Value = 10 },
-                new() { Id = 3, Name = "Bravo", Value = 20 },
+                new() { Id = Guid.NewGuid(), Name = "Charlie", Value = 30 },
+                new() { Id = Guid.NewGuid(), Name = "Alpha", Value = 10 },
+                new() { Id = Guid.NewGuid(), Name = "Bravo", Value = 20 },
             };
 
         var specification = new TestEntityOrderByNameAscendingSpecification();

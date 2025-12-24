@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using Reqnroll;
-using Reqnroll.Assist;
 using SpecificationExample.Domain.Blogs;
 using SpecificationExample.Domain.Common;
 
@@ -51,7 +50,7 @@ namespace SpecificationExample.AcceptanceTests.Features.StepDefinitions
 
         private class BlogRowDto
         {
-            public int Id { get; set; }
+            public Guid Id { get; set; }
             public string Name { get; set; } = string.Empty;
         }
     }

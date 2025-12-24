@@ -63,18 +63,18 @@ static List<BlogAccount> SeedInMemory()
 {
     var commonCategory = new BlogCategory
     {
-        Id = 1,
+        Id = Guid.Parse("96cfd70a-e1d0-4a39-a636-0f091c1837a1"),
         Name = "Programming"
     };
     return
     [
         new ()
         {
-            Id =1,
+            Id = Guid.Parse("37002a2a-6a74-4629-9817-7af3a03b812f"),
             Name = "First Blog Account",
             AccountAddress = new BlogAddress
             {
-                Id = 4,
+                Id = Guid.Parse("eac038a1-f8e2-43b1-a417-19f0cad61065"),
                 Street = "789 Corporate Blvd",
                 City = "Business City",
                 State = "TX",
@@ -82,11 +82,11 @@ static List<BlogAccount> SeedInMemory()
             },
             Autor =  new Autor
             {
-                Id = 1,
+                Id = Guid.Parse("27cfb9b4-de65-44e7-aed1-42de48668876"),
                 FullName = "John Doe",
                 Age =  new AutorAge
                 {
-                    Id = 1,
+                    Id = Guid.Parse("f8769d18-04c3-4523-aa45-a873b1adc2b0"),
                     Age = 30
                 }
             },
@@ -94,11 +94,11 @@ static List<BlogAccount> SeedInMemory()
             Blogs  = [
                 new Blog()
                 {
-                    Id = 1,
+                    Id = Guid.Parse("527e42e2-b591-4a40-a8bf-1179981b6330"),
                     Name = "My Tech Blog",
                     BlogAddress = new BlogAddress
                     {
-                        Id = 5,
+                        Id = Guid.Parse("c2ff44ea-d842-41c8-aab9-ca2f76b3971a"),
                         Street = "321 Tech Ave",
                         City = "Innovate Town",
                         State = "WA",
@@ -107,12 +107,12 @@ static List<BlogAccount> SeedInMemory()
                     Posts = [
                         new Post
                         {
-                            Id = 1,
+                            Id = Guid.Parse("108fcfee-4fe1-428b-87a3-0deac469bd46"),
                             Title = "EF Core Basics",
                             Content = "Learning EF Core...",
                             Address = new BlogAddress
                             {
-                                Id = 1,
+                                Id = Guid.Parse("a68b7bc1-303a-4b3a-b07a-6cc456163855"),
                                 Street = "123 Main St",
                                 City = "Techville",
                                 State = "CA",
@@ -123,19 +123,19 @@ static List<BlogAccount> SeedInMemory()
                                 commonCategory,
                                 new BlogCategory
                                 {
-                                    Id = 3,
+                                    Id = Guid.Parse("df93982b-0dce-463e-994b-061bdf46b8c2"),
                                     Name = "EF Core"
                                 }
                              ]
                         },
                         new Post
                         {
-                            Id = 2,
+                            Id = Guid.Parse("ea931eba-8825-44c3-acff-d8134f731b31"),
                             Title = "C# Tips",
                             Content = "Some useful C# tips...",
                             Address = new BlogAddress
                             {
-                                Id = 2,
+                                Id = Guid.Parse("3d88eabe-831e-4a2d-94ff-3ca8371f72a2"),
                                 Street = "456 Side St",
                                 City = "Code City",
                                 State = "NY",
@@ -145,7 +145,7 @@ static List<BlogAccount> SeedInMemory()
                                 commonCategory,
                                 new BlogCategory
                                 {
-                                    Id = 2,
+                                    Id = Guid.Parse("bc8436ff-dd84-489f-881a-e8543d6e5344"),
                                     Name = "C#"
                                 }
                             ]
