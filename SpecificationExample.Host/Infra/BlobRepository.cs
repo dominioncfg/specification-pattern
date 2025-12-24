@@ -4,36 +4,36 @@ using SpecificationExample.Domain.Common;
 
 namespace SpecificationExample.Infra;
 
-public class BlobRepository : IBlogRepository
+public class BlogAccountRepository : IBlogAccountRepository
 {
     private readonly AppDbContext _context;
-    public BlobRepository(AppDbContext context)
+    public BlogAccountRepository(AppDbContext context)
     {
         _context = context;
     }
-    public async Task Add(Blog entity, CancellationToken cancellation)
+    public async Task Add(BlogAccount entity, CancellationToken cancellation)
     {
-        await _context.Blogs.AddAsync(entity, cancellation);
+        await _context.Accounts.AddAsync(entity, cancellation);
         await _context.SaveChangesAsync();
     }
-    public async Task<Blog?> GetById(int id, CancellationToken cancellation)
+    public async Task<BlogAccount?> GetById(int id, CancellationToken cancellation)
     {
-        return await _context.Blogs.FindAsync(id);
+        return await _context.Accounts.FindAsync(id);
     }
 
-    public async Task Delete(Blog entity, CancellationToken cancellation)
+    public async Task Delete(BlogAccount entity, CancellationToken cancellation)
     {
-        _context.Blogs.Remove(entity);
+        _context.Accounts.Remove(entity);
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Blog>> Filter(Specification<Blog> filter, CancellationToken cancellation)
+    public async Task<IEnumerable<BlogAccount>> Filter(Specification<BlogAccount> filter, CancellationToken cancellation)
     {
-        return (await _context.Blogs.FilterWithEfCore(filter).ToListAsync(cancellation)).AsEnumerable();
+        return (await _context.Accounts.FilterWithEfCore(filter).ToListAsync(cancellation)).AsEnumerable();
     }
 
-    public async Task<Blog> Get(Specification<Blog> filter, CancellationToken cancellationToken)
+    public async Task<BlogAccount> Get(Specification<BlogAccount> filter, CancellationToken cancellationToken)
     {
-        return await _context.Blogs.FilterWithEfCore(filter).FirstAsync(cancellationToken);
+        return await _context.Accounts.FilterWithEfCore(filter).FirstAsync(cancellationToken);
     }
 }

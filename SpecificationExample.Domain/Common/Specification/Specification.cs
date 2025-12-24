@@ -7,7 +7,7 @@ public class Specification<T> where T : Entity
     public Expression<Func<T, bool>>? Filter { get; private set; }
     public List<SpecificationOrderByExpression<T>> OrdersBy { get; protected set; } = [];
     public SpecificationPagingExpression<T>? PagingExpressions { get; protected set; }
-    public List<Expression<Func<T, object>>> Includes { get; protected set; } = [];
+    public List<IncludeExpressionInfo> Includes { get; protected set; } = [];
     public List<string> QueryTags { get; protected set; } = [];
     public bool? SplitQuery { get; protected set; }
     public bool? AsNoTracking { get; protected set; }
@@ -48,13 +48,14 @@ public class Specification<T> where T : Entity
         return this;
     }
 
-    public Specification<T> Include(Expression<Func<T, object>> include)
+    public IncludableSpecificationBuilder<T, EntityNavigation> Include<EntityNavigation>(Expression<Func<T, EntityNavigation>> include)
     {
-        Includes.Add(include);
-        return this;
+        this.Include(new IncludeExpressionInfo(include));
+        var builder = new IncludableSpecificationBuilder<T, EntityNavigation>(this);
+        return builder;
     }
 
-    protected Specification<T> Include(params Expression<Func<T, object>>[] includes)
+    public Specification<T> Include(params IncludeExpressionInfo[] includes)
     {
         Includes.AddRange(includes);
         return this;
@@ -81,7 +82,7 @@ public class Specification<T> where T : Entity
     public Specification<T> AsSplitQuery(bool? asSplitQuery = true)
     {
         SplitQuery = asSplitQuery;
-        return this;
+      return this;
     }
 
 

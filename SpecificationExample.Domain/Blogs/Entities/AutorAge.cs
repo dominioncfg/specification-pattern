@@ -2,6 +2,7 @@ using SpecificationExample.Domain.Common;
 
 namespace SpecificationExample.Domain.Blogs;
 
-public interface IBlogAccountRepository : IRepository<BlogAccount>
+public class AutorAge : Entity
 {
+    public int Age { get; set; }
 }

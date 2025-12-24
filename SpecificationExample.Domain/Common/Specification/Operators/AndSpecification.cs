@@ -42,7 +42,7 @@ public class AndSpecification<T> : Specification<T> where T : Entity
         return left?.PagingExpressions ?? right?.PagingExpressions;
     }
 
-    private static Expression<Func<T, object>>[] CombineIncludes(Specification<T>? left, Specification<T>? right)
+    private static IncludeExpressionInfo[] CombineIncludes(Specification<T>? left, Specification<T>? right)
     {
         return [.. left?.Includes ?? [], .. right?.Includes ?? []];
     }

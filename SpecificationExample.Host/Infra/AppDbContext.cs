@@ -5,8 +5,10 @@ namespace SpecificationExample.Infra;
 
 public class AppDbContext : DbContext
 {
+    public DbSet<BlogAccount> Accounts { get; set; }
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<Post> Posts { get; set; }
+    public DbSet<BlogAddress> Addresses { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

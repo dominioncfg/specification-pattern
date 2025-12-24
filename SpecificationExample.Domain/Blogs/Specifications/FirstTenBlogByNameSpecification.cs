@@ -9,9 +9,9 @@ public class FirstTenBlogByNameSpecification : Specification<Blog>
     {
         Rule(query => name == query.Name)
             .OrderBy(blog => blog.Name)
-            .Paginate(0, 10)
-            .Include(blog => blog.Posts)
             .AsSplitQuery()
-            .QueryTag($"This is the {nameof(FirstTenBlogByNameSpecification)} query");
+            .QueryTag($"This is the {nameof(FirstTenBlogByNameSpecification)} query")
+            .Paginate(0, 10)
+            .Include(blog => blog.Posts);
     }
 }

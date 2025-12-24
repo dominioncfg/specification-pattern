@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SpecificationExample.Domain.Common;
-using System.Linq.Expressions;
 
 
 namespace SpecificationExample.Infra;
@@ -33,23 +32,6 @@ public static class SpecificationApplyExtensions
         foreach (var tag in specification.QueryTags)
         {
             query = query.TagWith(tag);
-        }
-
-        return query;
-    }
-
-    private static IQueryable<T> ApplyIncludes<T>(this IQueryable<T> query, Specification<T>? specification) where T : Entity
-    {
-        if (specification is null)
-            return query;
-
-        if (specification.Includes is null || specification.Includes.Count == 0)
-            return query;
-
-        for (int i = 0; i < specification.Includes.Count; i++)
-        {
-            Expression<Func<T, object>>? include = specification.Includes[i];
-            query = query.Include(specification.Includes[0]);
         }
 
         return query;
@@ -90,5 +72,5 @@ public static class SpecificationApplyExtensions
         }
 
         return query;
-    }
+    }    
 }
