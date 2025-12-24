@@ -78,14 +78,14 @@ public class WhenFilteringBySingleSpecification
         public int Value { get; set; }
     }
 
-    private class ReturnsAllTestEntitiesSpecification : Specification<TestEntity>
+    private class ReturnsAllTestEntitiesSpecification : DomainSpecification<TestEntity>
     {
         public ReturnsAllTestEntitiesSpecification()
         {
         }
     }
 
-    private class TestEntityByNameSpecification : Specification<TestEntity>
+    private class TestEntityByNameSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByNameSpecification(string name)
         {
@@ -93,7 +93,7 @@ public class WhenFilteringBySingleSpecification
         }
     }
 
-    private class TestEntityByValueSpecification : Specification<TestEntity>
+    private class TestEntityByValueSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueSpecification(int value)
         {

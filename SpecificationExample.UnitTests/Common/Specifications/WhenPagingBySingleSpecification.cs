@@ -267,7 +267,7 @@ public class WhenPagingBySingleSpecification
         public int Value { get; set; }
     }
 
-    private class TestEntityPaginateSpecification : Specification<TestEntity>
+    private class TestEntityPaginateSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityPaginateSpecification(int skip, int take)
         {
@@ -275,7 +275,7 @@ public class WhenPagingBySingleSpecification
         }
     }
 
-    private class TestEntityPaginateSkipOnlySpecification : Specification<TestEntity>
+    private class TestEntityPaginateSkipOnlySpecification : DomainSpecification<TestEntity>
     {
         public TestEntityPaginateSkipOnlySpecification(int skip)
         {
@@ -283,7 +283,7 @@ public class WhenPagingBySingleSpecification
         }
     }
 
-    private class TestEntityPaginateTakeOnlySpecification : Specification<TestEntity>
+    private class TestEntityPaginateTakeOnlySpecification : DomainSpecification<TestEntity>
     {
         public TestEntityPaginateTakeOnlySpecification(int take)
         {
@@ -291,7 +291,7 @@ public class WhenPagingBySingleSpecification
         }
     }
 
-    private class TestEntityByValueWithPagingSpecification : Specification<TestEntity>
+    private class TestEntityByValueWithPagingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueWithPagingSpecification(int value, int skip, int take)
         {
@@ -300,7 +300,7 @@ public class WhenPagingBySingleSpecification
         }
     }
 
-    private class TestEntityOrderByNameWithPagingSpecification : Specification<TestEntity>
+    private class TestEntityOrderByNameWithPagingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityOrderByNameWithPagingSpecification(int skip, int take)
         {
@@ -309,7 +309,7 @@ public class WhenPagingBySingleSpecification
         }
     }
 
-    private class TestEntityByValueWithOrderByNameAndPagingSpecification : Specification<TestEntity>
+    private class TestEntityByValueWithOrderByNameAndPagingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueWithOrderByNameAndPagingSpecification(int value, int skip, int take)
         {
@@ -319,7 +319,7 @@ public class WhenPagingBySingleSpecification
         }
     }
 
-    private class TestEntityNoPagingSpecification : Specification<TestEntity>
+    private class TestEntityNoPagingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityNoPagingSpecification()
         {

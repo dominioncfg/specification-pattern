@@ -112,7 +112,7 @@ public class WhenUsingAndSpecification
     [Fact]
     public void Throws_When_Both_Specifications_Are_Null()
     {
-        var act = () => new AndSpecification<TestEntity>(null!, null!);
+        var act = () => new DomainAndSpecification<TestEntity>(null!, null!);
 
         act.Should().Throw<ArgumentException>()
             .WithMessage("Both specifications cannot be null");
@@ -259,14 +259,14 @@ public class WhenUsingAndSpecification
         public int Value { get; set; }
     }
 
-    private class TestEntityEmptySpecification : Specification<TestEntity>
+    private class TestEntityEmptySpecification : DomainSpecification<TestEntity>
     {
         public TestEntityEmptySpecification()
         {
         }
     }
 
-    private class TestEntityByNameSpecification : Specification<TestEntity>
+    private class TestEntityByNameSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByNameSpecification(string name)
         {
@@ -274,7 +274,7 @@ public class WhenUsingAndSpecification
         }
     }
 
-    private class TestEntityByValueSpecification : Specification<TestEntity>
+    private class TestEntityByValueSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueSpecification(int value)
         {
@@ -282,7 +282,7 @@ public class WhenUsingAndSpecification
         }
     }
 
-    private class TestEntityByValueGreaterThanSpecification : Specification<TestEntity>
+    private class TestEntityByValueGreaterThanSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueGreaterThanSpecification(int value)
         {
@@ -290,7 +290,7 @@ public class WhenUsingAndSpecification
         }
     }
 
-    private class TestEntityByValueWithOrderByNameSpecification : Specification<TestEntity>
+    private class TestEntityByValueWithOrderByNameSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueWithOrderByNameSpecification(int value)
         {
@@ -299,7 +299,7 @@ public class WhenUsingAndSpecification
         }
     }
 
-    private class TestEntityByValueWithPagingSpecification : Specification<TestEntity>
+    private class TestEntityByValueWithPagingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueWithPagingSpecification(int value, int skip, int take)
         {
@@ -308,7 +308,7 @@ public class WhenUsingAndSpecification
         }
     }
 
-    private class TestEntityByValueGreaterThanWithPagingSpecification : Specification<TestEntity>
+    private class TestEntityByValueGreaterThanWithPagingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueGreaterThanWithPagingSpecification(int value, int skip, int take)
         {
@@ -317,7 +317,7 @@ public class WhenUsingAndSpecification
         }
     }
 
-    private class TestEntityOrderByNameWithPagingSpecification : Specification<TestEntity>
+    private class TestEntityOrderByNameWithPagingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityOrderByNameWithPagingSpecification(int skip, int take)
         {

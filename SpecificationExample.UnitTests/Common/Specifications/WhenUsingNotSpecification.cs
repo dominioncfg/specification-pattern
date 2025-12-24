@@ -125,7 +125,7 @@ public class WhenUsingNotSpecification
     [Fact]
     public void Throws_When_Specification_Is_Null()
     {
-        var act = () => new NotSpecification<TestEntity>(null);
+        var act = () => new DomainNotSpecification<TestEntity>(null);
 
         act.Should().Throw<ArgumentNullException>();
     }
@@ -372,14 +372,14 @@ public class WhenUsingNotSpecification
         public int Value { get; set; }
     }
 
-    private class TestEntityEmptySpecification : Specification<TestEntity>
+    private class TestEntityEmptySpecification : DomainSpecification<TestEntity>
     {
         public TestEntityEmptySpecification()
         {
         }
     }
 
-    private class TestEntityByNameSpecification : Specification<TestEntity>
+    private class TestEntityByNameSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByNameSpecification(string name)
         {
@@ -387,7 +387,7 @@ public class WhenUsingNotSpecification
         }
     }
 
-    private class TestEntityByValueSpecification : Specification<TestEntity>
+    private class TestEntityByValueSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueSpecification(int value)
         {
@@ -395,7 +395,7 @@ public class WhenUsingNotSpecification
         }
     }
 
-    private class TestEntityByValueGreaterThanSpecification : Specification<TestEntity>
+    private class TestEntityByValueGreaterThanSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueGreaterThanSpecification(int value)
         {
@@ -403,7 +403,7 @@ public class WhenUsingNotSpecification
         }
     }
 
-    private class TestEntityByValueLessThanSpecification : Specification<TestEntity>
+    private class TestEntityByValueLessThanSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueLessThanSpecification(int value)
         {
@@ -411,7 +411,7 @@ public class WhenUsingNotSpecification
         }
     }
 
-    private class TestEntityByValueRangeSpecification : Specification<TestEntity>
+    private class TestEntityByValueRangeSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueRangeSpecification(int min, int max)
         {
@@ -419,7 +419,7 @@ public class WhenUsingNotSpecification
         }
     }
 
-    private class TestEntityByValueWithOrderByNameSpecification : Specification<TestEntity>
+    private class TestEntityByValueWithOrderByNameSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueWithOrderByNameSpecification(int value)
         {
@@ -428,7 +428,7 @@ public class WhenUsingNotSpecification
         }
     }
 
-    private class TestEntityByValueWithPagingSpecification : Specification<TestEntity>
+    private class TestEntityByValueWithPagingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueWithPagingSpecification(int value, int skip, int take)
         {
@@ -437,7 +437,7 @@ public class WhenUsingNotSpecification
         }
     }
 
-    private class TestEntityByValueWithOrderByNameAndPagingSpecification : Specification<TestEntity>
+    private class TestEntityByValueWithOrderByNameAndPagingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueWithOrderByNameAndPagingSpecification(int value, int skip, int take)
         {

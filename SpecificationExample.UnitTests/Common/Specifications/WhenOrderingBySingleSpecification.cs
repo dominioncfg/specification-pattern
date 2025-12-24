@@ -133,7 +133,7 @@ public class WhenOrderingBySingleSpecification
         public int Value { get; set; }
     }
 
-    private class TestEntityOrderByNameAscendingSpecification : Specification<TestEntity>
+    private class TestEntityOrderByNameAscendingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityOrderByNameAscendingSpecification()
         {
@@ -141,7 +141,7 @@ public class WhenOrderingBySingleSpecification
         }
     }
 
-    private class TestEntityOrderByNameDescendingSpecification : Specification<TestEntity>
+    private class TestEntityOrderByNameDescendingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityOrderByNameDescendingSpecification()
         {
@@ -149,7 +149,7 @@ public class WhenOrderingBySingleSpecification
         }
     }
 
-    private class TestEntityOrderByValueAscendingSpecification : Specification<TestEntity>
+    private class TestEntityOrderByValueAscendingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityOrderByValueAscendingSpecification()
         {
@@ -157,7 +157,7 @@ public class WhenOrderingBySingleSpecification
         }
     }
 
-    private class TestEntityOrderByValueDescendingSpecification : Specification<TestEntity>
+    private class TestEntityOrderByValueDescendingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityOrderByValueDescendingSpecification()
         {
@@ -165,7 +165,7 @@ public class WhenOrderingBySingleSpecification
         }
     }
 
-    private class TestEntityOrderByValueThenByNameSpecification : Specification<TestEntity>
+    private class TestEntityOrderByValueThenByNameSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityOrderByValueThenByNameSpecification()
         {
@@ -174,7 +174,7 @@ public class WhenOrderingBySingleSpecification
         }
     }
 
-    private class TestEntityOrderByValueDescendingThenByNameAscendingSpecification : Specification<TestEntity>
+    private class TestEntityOrderByValueDescendingThenByNameAscendingSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityOrderByValueDescendingThenByNameAscendingSpecification()
         {
@@ -183,7 +183,7 @@ public class WhenOrderingBySingleSpecification
         }
     }
 
-    private class TestEntityByValueWithOrderByNameSpecification : Specification<TestEntity>
+    private class TestEntityByValueWithOrderByNameSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueWithOrderByNameSpecification(int value)
         {
@@ -192,7 +192,7 @@ public class WhenOrderingBySingleSpecification
         }
     }
 
-    private class TestEntityByValueSpecification : Specification<TestEntity>
+    private class TestEntityByValueSpecification : DomainSpecification<TestEntity>
     {
         public TestEntityByValueSpecification(int value)
         {

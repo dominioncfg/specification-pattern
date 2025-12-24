@@ -20,7 +20,7 @@
   
 
   <ItemGroup>
-    <ProjectReference Include="..\SpecificationExample.Domain\SpecificationExample.Domain.csproj" />
+    <ProjectReference Include="..\SpecificationExample.DomainSpecification\SpecificationExample.DomainSpecification.csproj" />
   </ItemGroup>
 
   <ItemGroup>
