@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationExample.Host", "SpecificationExample.Host\SpecificationExample.Host.csproj", "{AE3726F5-65AC-E79E-7D49-78EE4F753A4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecificationExample.DomainSpecification", "SpecificationExample.DomainSpecification\SpecificationExample.DomainSpecification.csproj", "{4638C4B3-D054-4D50-A3D9-359EC9667A0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{AE3726F5-65AC-E79E-7D49-78EE4F753A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE3726F5-65AC-E79E-7D49-78EE4F753A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE3726F5-65AC-E79E-7D49-78EE4F753A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4638C4B3-D054-4D50-A3D9-359EC9667A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4638C4B3-D054-4D50-A3D9-359EC9667A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4638C4B3-D054-4D50-A3D9-359EC9667A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4638C4B3-D054-4D50-A3D9-359EC9667A0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
